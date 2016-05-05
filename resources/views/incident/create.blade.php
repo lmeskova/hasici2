@@ -84,9 +84,13 @@
 
                     <select multiple class="form-control" name="insurance_companies[]" id="insurance">
                         @foreach($insuranceCompanies as $company)
-                            <option value="{{ $company->id }}"
-                                @if(in_array($company->id, Input::old('insurance_companies'))) selected @endif
-                            >{{ $company->name }}</option>
+                            @if(Input::old('insurance_companies'))
+                                <option value="{{ $company->id }}"
+                                    @if(in_array($company->id, Input::old('insurance_companies'))) selected @endif
+                                >{{ $company->name }}</option>
+                            @else
+                                <option value="{{ $company->id }}">{{ $company->name }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </p>
