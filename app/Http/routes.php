@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 */
-
+/*
 Route::get('/   ','MainMenuController@index');
 
 Route::get('newIncident','IncidentController@createNew');
@@ -24,7 +24,45 @@ Route::get('newIncident','IncidentController@createNew');
 Route::get('details','IncidentDetailController@details');
 
 Route::get('objects','DamagedObjectController@objects');
+*/
 
+
+Route::group([], function(){
+    Route::get('/', [
+        'as' => 'dashboard',
+        'uses' => 'DashboardController@index'
+    ]);
+
+    Route::group([
+        'as' => 'incident.',
+        'prefix' => 'incident'
+    ], function(){
+
+        Route::get('/create', [
+            'as' => 'create',
+            'uses' => 'IncidentController@create'
+        ]);
+        Route::post('/create', 'IncidentController@store');
+
+
+
+        Route::get('/{incidentId}', 'IncidentController@show');
+
+        Route::get('/{incidentId}/edit', 'IncidentController@edit');
+        Route::post('/{incidentId}/edit', 'IncidentController@update');
+
+
+        
+        
+        
+        
+
+
+
+    });
+
+
+});
 
 
 
