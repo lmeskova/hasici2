@@ -1,0 +1,5 @@
+"01","panika  (nesprávny odhad situácie)"
+"02","spánok"
+"03","dopravná havária"
+"04","pri hasebných prácach"
+"09","iné okolnosti usmrtenia alebo zranenia"

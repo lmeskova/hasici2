@@ -1,0 +1,3 @@
+"01","usmrtenie"
+"02","zranenie závažné"
+"03","zranenie ľahké"

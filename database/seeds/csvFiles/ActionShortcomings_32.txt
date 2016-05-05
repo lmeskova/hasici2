@@ -1,0 +1,6 @@
+"01","neskoré spozorovanie požiaru"
+"02","zlyhanie EPS"
+"03","zlyhanie SHZ"
+"04","zlyhanie hasiacich prístrojov"
+"05","neúčinný hasebný zásah pred príchodom jednotiek PO"
+"09","iné nedostatky v činnostiach pred príchodom jednotiek PO"

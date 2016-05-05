@@ -1,0 +1,6 @@
+"01","pôsobenie tepla a vysokých teplôt"
+"02","otrava (priotrávenie) splodinami horenia"
+"03","pád z výšky (do hĺbky)"
+"04","náraz (mechanické poškodenie)"
+"05","úraz elektrickým prúdom"
+"09","iné príčiny usmrtenia alebo zranenia"

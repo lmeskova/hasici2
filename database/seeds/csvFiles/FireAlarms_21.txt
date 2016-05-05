@@ -1,0 +1,4 @@
+"01","EPS nebola inštalovaná"
+"02","EPS bola inštalovaná - nefunkčná"
+"03","EPS bola inštalovaná - funkčná, nebola v činnosti"
+"04","EPS bola inštalovaná - funkčná, bola v činnosti"

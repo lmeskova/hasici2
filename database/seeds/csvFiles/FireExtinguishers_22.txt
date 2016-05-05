@@ -1,0 +1,9 @@
+01,SHZ nebolo inštalované
+02,SHZ automaticky ovládané - nefunkčné
+03,SHZ automaticky ovládané - funkčné, nebolo v činnosti
+04,SHZ automaticky ovládané - funkčné, bolo v činnosti - neúčinné
+05,SHZ automaticky ovládané - funkčné, bolo v činnosti - účinné
+06,SHZ ručne ovládané - nefunkčné
+07,SHZ ručne ovládané - funkčné, nebolo v činnosti
+08,SHZ ručne ovládané - funkčné, bolo v činnosti - neúčinné
+09,SHZ ručne ovládané - funkčné, bolo v činnosti - účinné

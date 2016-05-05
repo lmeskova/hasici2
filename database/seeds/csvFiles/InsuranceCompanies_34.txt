@@ -1,0 +1,29 @@
+01,Allianz poisťovňa, a. s.
+02,Amslico Prvá americko-slovenská poisťovňa
+03,Česká poisťovňa - Slovensko
+04,D.A.S. poisťovňa právnej ochrany
+05,Dopravná poisťovňa
+06,Zurich poisťovňa
+07,Generali Poisťovňa
+08,Hasičská poisťovňa
+09,Komunálna poisťovňa
+10,Kontinuita - Slovenská životná poisťovňa
+11,KOOPERATIVA poisťovňa, a.s.
+12,ING Nationale - Nederlanden
+13,Poisťovňa DRUKOS
+14,Poisťovňa Gerling-Slovensko
+15,Poisťovňa Tatra
+16,Poisťovňa ERGO
+17,Poisťovňa UNIQA
+18,Prvá Česko - Slovenská Poisťovňa
+19,QBE poisťovňa, a.s.
+20,R+V poisťovňa
+21,Slovenská poisťovňa
+22,Union, poisťovacia
+23,Univerzálna banková poisťovňa
+24,Victoria Volksbanken poisťovňa
+25,Vzájomná životná poisťovňa
+26,Wüstenrot - životná poisťovňa
+27,Poisťovňa AIG Slovakia, a.s.
+28,Poisťovňa CARDIF Slovakia, a.s.
+49,Iná

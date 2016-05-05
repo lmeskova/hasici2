@@ -1,0 +1,5 @@
+"01","horľavé kvapaliny I. triedy"
+"02","horľavé kvapaliny II. triedy"
+"03","horľavé kvapaliny III. triedy"
+"04","horľavé kvapaliny IV. triedy"
+"05","horľavé kvapaliny mimo triedy nebezpečnosti"

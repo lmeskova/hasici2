@@ -1,0 +1,8 @@
+"01","nevyhovujúci alebo chýbajúci požiarny štatút"
+"02","nevyhovujúci alebo chýbajúci požiar. poriadok pracoviska"
+"03","nevyhovujúce alebo chýbajúce poplachové smernice"
+"04","nedostatky v práci  technika požiarnej ochrany"
+"05","nedostatočné alebo nevykonané školenia PO"
+"06","nevykonané preventívne kontroly"
+"07","nedostatky v práci požiar. hliadky resp. nie je ustanovená"
+"09","iné nedostatky v organizácii PO"

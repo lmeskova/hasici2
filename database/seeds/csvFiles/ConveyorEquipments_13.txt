@@ -1,0 +1,4 @@
+"01","pásový dopravník"
+"02","pneumatický dopravník"
+"03","potrubný dopravník"
+"09","iné priemyselné dopravník. zariadenie"

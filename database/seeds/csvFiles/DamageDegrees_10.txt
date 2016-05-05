@@ -1,0 +1,7 @@
+"01","drevostavba"
+"02","zateplená stavba"
+"03","zateplená drevostavba"
+"04","vykurovanie"
+"14","drevostavba a príčina vykurovanie"
+"24","zateplená stavba a príčina vykurovanie"
+"34","zateplená drevostavba a príčina vykurovanie"

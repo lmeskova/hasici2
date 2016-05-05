@@ -1,0 +1,8 @@
+"01","nevyhovujúce dvere alebo požiarne uzávery, nezaistené otvory"
+"02","vzduchotechnické rozvody  (aj v bytových jadrách) ako požiarny most"
+"03","elektrické vedenie ako požiarny most medzi PÚ"
+"04","neutesnené priestupy požiarno deliacimi konštrukciami PÚ"
+"05","rozvody prechádzajúce požiarnym úsekom z horľavých hmôt"
+"06","obvodové steny a strešný plášť  bez nehorľ. požiarneho pásu medzi PÚ"
+"07","prIebežné stavebné konštrukcie ako požiarny most medzi PÚ"
+"09","iné dôvody rozšírenia"

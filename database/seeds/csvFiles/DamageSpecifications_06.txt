@@ -1,0 +1,6 @@
+"01","škoda neurčená"
+"02","škoda určená poškodeným"
+"03","škoda určená odborným odhadom"
+"04","škoda určená ZPP"
+"05","iný spôsob určenia škody"
+"06","škoda určená jednotkou PO"

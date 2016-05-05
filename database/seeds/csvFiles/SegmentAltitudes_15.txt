@@ -1,0 +1,6 @@
+"01","jednopodlažná budova"
+"02","podzemné podlažie"
+"03","1. až 3. podlažie (okrem jednopodlažných budov)"
+"04","4. až 7. podlažie"
+"05","nad 22,5 m do 45 m"
+"06","nad 45 m"
