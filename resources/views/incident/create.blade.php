@@ -72,7 +72,7 @@
             <label class="col-sm-2 control-label">Adresa</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <textarea class="form-control" rows="2" placeholder="Vyplňiť adresu..." name="address"></textarea>
+                    <textarea class="form-control" rows="2" placeholder="Adresa..." name="address"></textarea>
                 </p>
             </div>
         </div>
