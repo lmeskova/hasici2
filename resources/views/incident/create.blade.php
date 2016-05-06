@@ -26,9 +26,9 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="row form-group">
             <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
-            <div class="col-sm-10">
+            <div class="col-sm-4">
                 <p class="form-control-static">
 
                     <input type="datetime-local" class="form-control" name="report_date" value="{{Carbon\Carbon::now()->toW3cString()}}">
@@ -46,12 +46,9 @@
                     -->
                 </p>
             </div>
-        </div>
 
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Deň a čas spozorovania</label>
-            <div class="col-sm-10">
+            <label for="observe_date" class="col-sm-2 control-label">Deň a čas spozorovania</label>
+            <div class="col-sm-4">
                 <p class="form-control-static">
                     <input type="datetime-local" class="form-control" name="observe_date" value="{{Carbon\Carbon::now()->toW3cString()}}">
                 </p>
@@ -62,7 +59,7 @@
             <label class="col-sm-2 control-label">Obec</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="text">
+                    <input type="text" class="form-control" name="town" value="{{Input::old('town')}}">
 
                 </p>
             </div>
@@ -72,7 +69,7 @@
             <label class="col-sm-2 control-label">Adresa</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <textarea class="form-control" rows="2" placeholder="Adresa..." name="address"></textarea>
+                    <input type="text" class="form-control" name="address" value="{{Input::old('address')}}">
                 </p>
             </div>
         </div>
@@ -106,7 +103,9 @@
                     <select class="form-control" name="ownerships" required>
                         <option ></option>
                         @foreach($ownerships as $ownership)
-                            <option value="{{ $ownership->id }}">({{ $ownership->code }}) {{ $ownership->name }}</option>
+                            <option value="{{ $ownership->id }}"
+                                    @if($ownership->id == Input::old('ownerships')) selected @endif
+                            >({{ $ownership->code }}) {{ $ownership->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -118,6 +117,7 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
                     <select class="form-control" name="damage_specifications">
+                        <option ></option>
                         @foreach($damageSpecifications as $specification)
                             <option value="{{ $specification->id }}"
                                 @if($specification->id == Input::old('damage_specifications')) selected @endif
@@ -133,8 +133,11 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
                     <select class="form-control" name="damage_types">
+                        <option ></option>
                         @foreach($damageTypes as $type)
-                            <option value="{{ $type->id }}">({{ $type->code }}) {{ $type->name }}</option>
+                            <option value="{{ $type->id }}"
+                                    @if($type->id == Input::old('damage_types')) selected @endif
+                            >({{ $type->code }}) {{ $type->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -146,11 +149,14 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
                     <select class="form-control" name="industry_types">
+                        <option ></option>
                         @foreach($industryTypes as $type)
                             @if(in_array($type->id, ['02', '08', '17', '26', '41', '49', '56', '65']))
                                 <option value="{{ $type->id }}" disabled class="bg-info text-info">{{ $type->name }}</option>
                             @else
-                                <option value="{{ $type->id }}">({{ $type->code }}) {{ $type->name }}</option>
+                                <option value="{{ $type->id }}"
+                                        @if($type->id == Input::old('industry_types')) selected @endif
+                                >({{ $type->code }}) {{ $type->name }}</option>
                             @endif
                         @endforeach
 
@@ -163,9 +169,9 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Škoda (€)</label>
             <p class="form-control-static text-center">
-                Priama: <input type="number" class="text-center" name="direct_damage_value">
-                Následná: <input type="number" class="text-center" name="followup_damage_value">
-                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value">
+                Priama: <input type="number" class="text-center" name="direct_damage_value" value="{{Input::old('direct_damage_value')}}">
+                Následná: <input type="number" class="text-center" name="followup_damage_value" value="{{Input::old('followup_damage_value')}}">
+                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" value="{{Input::old('saved_value')}}">
             </p>
         </div>
 
