@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Incident;
 use App\IncidentDetail;
 use Illuminate\Http\Request;
 
@@ -57,7 +58,9 @@ class IncidentDetailController extends Controller
         $organizationShortcomings = OrganizationShortcoming::all();
         $actionShortcomings = ActionShortcoming::all();
         $incidentConclusions = IncidentConclusion::all();
-        return view('incidentDetail', [
+
+
+        return view('incidentDetail.create', [
             'areas' => $areas,
             'fireLocations' => $fireLocations,
             'vehicleParts' => $vehicleParts,
@@ -80,12 +83,16 @@ class IncidentDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param $incidentId
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($incidentId, Request $request)
     {
-        IncidentDetail::create($request->all());
+
+        $incident = Incident::findOrFail($incidentId);
+
+        $incident->incidentDetail()->create($request->all());
 
         return redirect()->route('incident.create');
     }
@@ -93,10 +100,12 @@ class IncidentDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param $incidentId
+     * @param $incidentDetailId
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function show($id)
+    public function show($incidentId, $incidentDetailId)
     {
         //
     }

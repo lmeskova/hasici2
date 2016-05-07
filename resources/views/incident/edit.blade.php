@@ -12,15 +12,15 @@
 
         {{csrf_field()}}
         <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
         </ul>
         <div class="form-group">
             <label class="col-sm-2 control-label">Evidečné číslo udalosti</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="number" class="form-control" name="evidence_number" value="{{Input::old('evidence_number')}}">
+                    <input type="number" class="form-control" name="evidence_number" value="{{Input::old('evidence_number') ? Input::old('evidence_number') : $incident->evidence_number}}">
 
                 </p>
             </div>
@@ -30,14 +30,14 @@
             <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
             <div class="col-sm-4">
                 <p class="form-control-static">
-                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  Carbon\Carbon::now()->format('Y-m-d\TH:i')  }}">
+                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  $incident->report_date->format('Y-m-d\TH:i')  }}">
                 </p>
             </div>
 
             <label for="observe_date" class="col-sm-2 control-label">Deň a čas spozorovania</label>
             <div class="col-sm-4">
                 <p class="form-control-static">
-                    <input type="datetime-local" class="form-control" name="observe_date" value="{{ (Input::old('observe_date')) ?  Input::old('observe_date') :  Carbon\Carbon::now()->format('Y-m-d\TH:i')  }}">
+                    <input type="datetime-local" class="form-control" name="observe_date" value="{{ (Input::old('observe_date')) ?  Input::old('observe_date') :  $incident->observe_date->format('Y-m-d\TH:i')  }}">
                 </p>
             </div>
         </div>
@@ -46,8 +46,7 @@
             <label class="col-sm-2 control-label">Obec</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="text" class="form-control" name="town" value="{{Input::old('town')}}">
-
+                    <input type="text" class="form-control" name="town" value="{{Input::old('town') ? Input::old('town') : $incident->town}}">
                 </p>
             </div>
         </div>
@@ -56,7 +55,7 @@
             <label class="col-sm-2 control-label">Adresa</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="text" class="form-control" name="address" value="{{Input::old('address')}}">
+                    <input type="text" class="form-control" name="address" value="{{Input::old('address') ? Input::old('address') : $incident->address}}">
                 </p>
             </div>
         </div>
@@ -68,13 +67,11 @@
 
                     <select multiple class="form-control" name="insurance_companies[]" id="insurance">
                         @foreach($insuranceCompanies as $company)
-                            @if(Input::old('insurance_companies'))
                                 <option value="{{ $company->id }}"
-                                    @if(in_array($company->id, Input::old('insurance_companies'))) selected @endif
+                                    @if(Input::old('insurance_companies') ? (in_array($company->id, Input::old('insurance_companies'))) : in_array($company->id, $incidentInsuranceCompanies) )
+                                        selected
+                                    @endif
                                 >{{ $company->name }}</option>
-                            @else
-                                <option value="{{ $company->id }}">{{ $company->name }}</option>
-                            @endif
                         @endforeach
                     </select>
                 </p>
@@ -87,11 +84,11 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
 
-                    <select class="form-control" name="ownership_id" required>
+                    <select class="form-control" name="ownership_id" >
                         <option ></option>
                         @foreach($ownerships as $ownership)
                             <option value="{{ $ownership->id }}"
-                                    @if($ownership->id == Input::old('ownership_id')) selected @endif
+                                @if(Input::old('ownership_id') ? ($ownership->id == Input::old('ownership_id')) : ($ownership->id == $incident->ownership_id)) selected @endif
                             >({{ $ownership->code }}) {{ $ownership->name }}</option>
                         @endforeach
                     </select>
@@ -107,7 +104,9 @@
                         <option ></option>
                         @foreach($damageSpecifications as $specification)
                             <option value="{{ $specification->id }}"
-                                @if($specification->id == Input::old('damage_specification_id')) selected @endif
+                                    @if(Input::old('damage_specification_id') ? ($specification->id == Input::old('damage_specification_id')) : ($specification->id == $incident->damage_specification_id))
+                                        selected
+                                    @endif
                             >({{ $specification->code }}) {{ $specification->name }}</option>
                         @endforeach
                     </select>
@@ -123,7 +122,9 @@
                         <option ></option>
                         @foreach($damageTypes as $type)
                             <option value="{{ $type->id }}"
-                                    @if($type->id == Input::old('damage_type_id')) selected @endif
+                                @if(Input::old('damage_type_id') ? ($type->id == Input::old('damage_type_id')) : ($type->id == $incident->damage_type_id))
+                                    selected
+                                @endif
                             >({{ $type->code }}) {{ $type->name }}</option>
                         @endforeach
                     </select>
@@ -142,7 +143,9 @@
                                 <option value="{{ $type->id }}" disabled class="bg-info text-info">{{ $type->name }}</option>
                             @else
                                 <option value="{{ $type->id }}"
-                                        @if($type->id == Input::old('industry_type_id')) selected @endif
+                                    @if(Input::old('industry_type_id') ? ($type->id == Input::old('industry_type_id')) : ($type->id == $incident->industry_type_id))
+                                        selected
+                                    @endif
                                 >({{ $type->code }}) {{ $type->name }}</option>
                             @endif
                         @endforeach
@@ -156,9 +159,9 @@
         <div class="form-group">
             <label class="col-sm-2 control-label">Škoda (€)</label>
             <p class="form-control-static text-center">
-                Priama: <input type="number" class="text-center" name="direct_damage_value" value="{{Input::old('direct_damage_value')}}">
-                Následná: <input type="number" class="text-center" name="followup_damage_value" value="{{Input::old('followup_damage_value')}}">
-                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" value="{{Input::old('saved_value')}}">
+                Priama: <input type="number" class="text-center" name="direct_damage_value" value="{{Input::old('direct_damage_value') ? Input::old('direct_damage_value') : $incident->direct_damage_value}}">
+                Následná: <input type="number" class="text-center" name="followup_damage_value" value="{{Input::old('followup_damage_value') ? Input::old('followup_damage_value') : $incident->followup_damage_value}}">
+                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" value="{{Input::old('saved_value') ? Input::old('saved_value') : $incident->saved_value}}">
             </p>
         </div>
 

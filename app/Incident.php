@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -12,8 +13,10 @@ class Incident extends Model {
 
 	use SoftDeletes;
 
-	protected $dates = ['deleted_at'];
+	protected $dates = ['deleted_at', 'report_date', 'observe_date'];
+	
 	protected $fillable = array('user_id', 'evidence_number', 'town_id', 'address', 'property_owner_id', 'property_user_id', 'ownership_id', 'damage_specification_id', 'damage_type_id', 'industry_type_id', 'direct_damage_value', 'followup_damage_value', 'saved_value', 'observe_date', 'report_date');
+
 
 	public function town()
 	{
@@ -67,12 +70,15 @@ class Incident extends Model {
 
 	public function incidentDetail()
 	{
-		return $this->hasOne('App\IncidentDetail', 'incident_detail_id');
+		return $this->hasOne('App\IncidentDetail', 'incident_id');
 	}
 
 	public function damagedObject()
 	{
 		return $this->hasOne('App\DamagedObject', 'incident_id');
 	}
+
+
+
 
 }

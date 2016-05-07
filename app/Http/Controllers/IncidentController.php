@@ -63,10 +63,10 @@ class IncidentController extends Controller
             'report_date' => 'required|date',
             'observe_date' => 'required|date',
             'address' => 'required',
-            'ownerships' => 'required',
-            'damage_specifications' => 'required',
-            'damage_types' => 'required',
-            'industry_types' => 'required',
+            'ownership_id' => 'required',
+            'damage_specification_id' => 'required',
+            'damage_type_id' => 'required',
+            'industry_type_id' => 'required',
 
             'direct_damage_value' => 'required|numeric',
             'followup_damage_value' => 'required|numeric',
@@ -84,7 +84,10 @@ class IncidentController extends Controller
 
 
 
-        Incident::create($request->all());
+        $incident = Incident::create($request->all());
+
+        $incident->insuranceCompanies()->detach();
+        $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
 
         return redirect()->route('dashboard');
 
@@ -109,7 +112,34 @@ class IncidentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $incident = Incident::findOrFail($id);
+
+
+        $incidentInsuranceCompanies = $incident->insuranceCompanies->map(function($item){
+            return $item->id;
+        })->toArray();
+
+
+
+        $insuranceCompanies = InsuranceCompany::all();
+        $industryTypes = IndustryType::all();
+        $ownerships = Ownership::all();
+        $damageSpecifications = DamageSpecification::all();
+        $damageTypes = DamageType::all();
+
+
+
+        return view('incident.edit', [
+            'incident' => $incident,
+
+            'insuranceCompanies' => $insuranceCompanies,
+            'industryTypes' => $industryTypes,
+            'ownerships' => $ownerships,
+            'damageSpecifications' => $damageSpecifications,
+            'damageTypes' => $damageTypes,
+
+            'incidentInsuranceCompanies' => $incidentInsuranceCompanies,
+        ]);
     }
 
     /**
@@ -121,7 +151,46 @@ class IncidentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $incident = Incident::findOrFail($id);
+
+
+        $validator = Validator::make($request->all(), [
+            'evidence_number' => 'required|numeric',
+            'report_date' => 'required|date',
+            'observe_date' => 'required|date',
+            'address' => 'required',
+            'ownership_id' => 'required',
+            'damage_specification_id' => 'required',
+            'damage_type_id' => 'required',
+            'industry_type_id' => 'required',
+
+            'direct_damage_value' => 'required|numeric',
+            'followup_damage_value' => 'required|numeric',
+            'saved_value' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+
+
+        }
+
+
+        $incident->update($request->all());
+
+        $incident->insuranceCompanies()->detach();
+        $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
+
+
+        return redirect()->route('dashboard');
+
+
+
+
+
     }
 
     /**
