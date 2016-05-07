@@ -20,7 +20,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="areas[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($areas as $area)
                             <option value="{{ $area->id }}" @if($area->id == Input::old('areas'))
                             selected @endif>({{ $area->code }}) {{ $area->name }}</option>
@@ -35,7 +35,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="fireLocations[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($fireLocations as $location)
                             <option value="{{ $location->id }}" @if($location->id == Input::old('fireLocations'))
                             selected @endif>({{ $location->code }}) {{ $location->name }}</option>
@@ -50,7 +50,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="vehicleParts[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($vehicleParts as $part)
                             <option value="{{ $part->id }}" @if($part->id == Input::old('vehicleParts'))
                             selected @endif>({{ $part->code }}) {{ $part->name }}</option>
@@ -65,7 +65,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="conveyorEquipments[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($conveyorEquipments as $equipment)
                             <option value="{{ $equipment->id }}" @if($equipment->id == Input::old('conveyorEquipments'))
                             selected @endif>({{ $equipment->code }}) {{ $equipment->name }}</option>
@@ -81,7 +81,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="incidentCauses[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($incidentCauses as $cause)
                             <option value="{{ $cause->id }}" @if($cause->id == Input::old('incidentCauses'))
                             selected @endif>({{ $cause->code }}) {{ $cause->name }}</option>
@@ -96,7 +96,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="flammableSubstances[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($flammableSubstances as $substance)
                             <option value="{{ $substance->id }} @if($substance->id == Input::old('flammableSubstances'))
                                     selected @endif>({{ $substance->code }}) {{ $substance->name }}</option>
@@ -111,7 +111,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="initiators[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($initiators as $initiator)
                             <option value="{{ $initiator->id }}" @if($initiator->id == Input::old('initiators'))
                             selected @endif>({{ $initiator->code }}) {{ $initiator->name }}</option>
@@ -126,7 +126,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="electricalWirings[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($electricalWirings as $wiring)
                             <option value="{{ $wiring->id }}" @if($wiring->id == Input::old('electricalWirings'))
                             selected @endif>({{ $wiring->code }}) {{ $wiring->name }}</option>
@@ -141,7 +141,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="initiatorsImpacts[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($initiatorsImpacts as $impact)
                             <option value="{{ $impact->id }}" @if($impact->id == Input::old('initiatorsImpacts'))
                             selected @endif>({{ $impact->code }}) {{ $impact->name }}</option>
@@ -156,7 +156,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="burningSubstances[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($burningSubstances as $substance)
                             <option value="{{ $substance->id }}" @if($substance->id == Input::old('burningSubstances'))
                             selected @endif>({{ $substance->code }}) {{ $substance->name }}</option>
@@ -171,7 +171,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="followingSubstances[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($followingSubstances as $followingSubstance)
                             <option value="{{ $followingSubstance->id }}" @if($followingSubstance->id == Input::old('followingSubstances'))
                             selected @endif>({{ $followingSubstance->code }}) {{ $followingSubstance->name }}</option>
@@ -186,7 +186,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="hazardClasses[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($hazardClasses as $class)
                             <option value="{{ $class->id }}" @if($class->id == Input::old('hazardClasses'))
                             selected @endif>({{ $class->code }}) {{ $class->name }}</option>
@@ -201,7 +201,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="organizationShortcomings[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($organizationShortcomings as $shortcoming)
                             <option value="{{ $shortcoming->id }}" @if($shortcoming->id == Input::old('organizationShortcomings'))
                             selected @endif>({{ $shortcoming->code }}) {{ $shortcoming->name }}</option>
@@ -216,7 +216,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="actionShortcomings[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($actionShortcomings as $actionShortcoming)
                             <option value="{{ $actionShortcoming->id }}" @if($actionShortcoming->id == Input::old('actionShortcomings'))
                             selected @endif>({{ $actionShortcoming->code }}) {{ $actionShortcoming->name }}</option>
@@ -231,7 +231,7 @@
             <div class="col-sm-7">
                 <p class="form-control-static">
                     <select class="form-control" name="incidentConclusions[]">
-                        <option value=""></option>
+                        <option ></option>
                         @foreach($incidentConclusions as $conclusion)
                             <option value="{{ $conclusion->id }}" @if($conclusion->id == Input::old('incidentConclusions'))
                             selected @endif>({{ $conclusion->code }}) {{ $conclusion->name }}</option>
