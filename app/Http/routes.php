@@ -51,17 +51,27 @@ Route::group([], function(){
         Route::get('/{incidentId}/edit', 'IncidentController@edit');
         Route::post('/{incidentId}/edit', 'IncidentController@update');
 
-
-        
-        
-        
-        
-
-
-
     });
 
+    Route::group([
+        'as' => 'incident-detail.',
+        'prefix' => 'incident-detail'
+    ], function(){
 
+        Route::get('/create', [
+            'as' => 'create',
+            'uses' => 'IncidentDetailController@create'
+        ]);
+        Route::post('/create', 'IncidentDetailController@store');
+
+
+
+        Route::get('/{incidentId}', 'IncidentDetailController@show');
+
+        Route::get('/{incidentId}/edit', 'IncidentDetailController@edit');
+        Route::post('/{incidentId}/edit', 'IncidentDetailController@update');
+
+    });
 });
 
 

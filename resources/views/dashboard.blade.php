@@ -8,6 +8,7 @@
             <a href="{{route('incident.create')}}" class="btn btn-success">New</a>
         </div>
     </div>
+
     <table class="table table-striped">
         @foreach($incidents as $incident)
             <tr>

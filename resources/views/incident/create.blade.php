@@ -179,6 +179,15 @@
             <!-- <button type="button" class="btn btn-primary btn-lg"><a href="/details" role="button">Detaily</a></button>-->
             <button type="submit" class="btn btn-primary btn-lg">Uložiť záznam</button>
         </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="{{route('incident-detail.create')}}" class="btn btn-success">Pridať detaily</a>
+            </div>
+        </div>
+
+
     </form>
 
 

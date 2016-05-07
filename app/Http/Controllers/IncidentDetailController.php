@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\IncidentDetail;
 use Illuminate\Http\Request;
 
 use App\ActionShortcoming;
@@ -84,7 +85,9 @@ class IncidentDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        IncidentDetail::create($request->all());
+
+        return redirect()->route('incident.create');
     }
 
     /**
