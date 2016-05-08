@@ -46,7 +46,19 @@
             <label class="col-sm-2 control-label">Obec</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="text" class="form-control" name="town" value="{{Input::old('town') ? Input::old('town') : $incident->town}}">
+                    <select class="form-control" name="town_id">
+                        <option ></option>
+
+                        @foreach($towns as $town)
+                            @if (in_array($town->district_id, ['11', '12', '14','29','32','35','39','55','71','72','79']))
+                                <option value="{{ $town->id }}"
+                                        @if(Input::old('town_id') ? ($town->id == Input::old('town_id')) : ($town->id == $incident->town_id))
+                                        selected
+                                        @endif
+                                >{{ $town->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </p>
             </div>
         </div>

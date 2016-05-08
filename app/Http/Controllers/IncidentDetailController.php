@@ -94,7 +94,7 @@ class IncidentDetailController extends Controller
 
         $incident->incidentDetail()->create($request->all());
 
-        return redirect()->route('incident.create');
+        return redirect()->route('dashboard');
     }
 
     /**

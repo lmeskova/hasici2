@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\DamageSpecification;
 use App\DamageType;
+use App\District;
 use App\Incident;
 use App\IndustryType;
 use App\InsuranceCompany;
 use App\Ownership;
+use App\Town;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -37,6 +39,7 @@ class IncidentController extends Controller
         $ownerships = Ownership::all();
         $damageSpecifications = DamageSpecification::all();
         $damageTypes = DamageType::all();
+        $towns = Town::all();
 
         return view('incident.create', [
             'insuranceCompanies' => $insuranceCompanies,
@@ -44,6 +47,8 @@ class IncidentController extends Controller
             'ownerships' => $ownerships,
             'damageSpecifications' => $damageSpecifications,
             'damageTypes' => $damageTypes,
+            'towns' => $towns,
+
         ]);
     }
 
@@ -67,7 +72,7 @@ class IncidentController extends Controller
             'damage_specification_id' => 'required',
             'damage_type_id' => 'required',
             'industry_type_id' => 'required',
-
+            'town_id' => 'required',
             'direct_damage_value' => 'required|numeric',
             'followup_damage_value' => 'required|numeric',
             'saved_value' => 'required|numeric',
@@ -126,19 +131,21 @@ class IncidentController extends Controller
         $ownerships = Ownership::all();
         $damageSpecifications = DamageSpecification::all();
         $damageTypes = DamageType::all();
+        $towns = Town::all();
+        $districts = District::all();
 
 
 
         return view('incident.edit', [
             'incident' => $incident,
-
             'insuranceCompanies' => $insuranceCompanies,
             'industryTypes' => $industryTypes,
             'ownerships' => $ownerships,
             'damageSpecifications' => $damageSpecifications,
             'damageTypes' => $damageTypes,
-
+            'towns' => $towns,
             'incidentInsuranceCompanies' => $incidentInsuranceCompanies,
+            'districts' => $districts,
         ]);
     }
 
@@ -163,7 +170,7 @@ class IncidentController extends Controller
             'damage_specification_id' => 'required',
             'damage_type_id' => 'required',
             'industry_type_id' => 'required',
-
+            'town_id' => 'required',
             'direct_damage_value' => 'required|numeric',
             'followup_damage_value' => 'required|numeric',
             'saved_value' => 'required|numeric',
