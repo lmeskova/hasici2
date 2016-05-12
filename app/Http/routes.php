@@ -30,12 +30,15 @@ Route::get('objects','DamagedObjectController@objects');
 Route::group([], function(){
     Route::get('/', [
         'as' => 'dashboard',
+        'middleware' => 'auth',
         'uses' => 'DashboardController@index'
     ]);
 
     Route::group([
         'as' => 'incident.',
-        'prefix' => 'incident'
+        'middleware' => 'auth',
+        'prefix' => 'incident',
+
     ], function(){
 
         Route::get('/create', [
