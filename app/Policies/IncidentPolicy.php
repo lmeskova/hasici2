@@ -43,6 +43,12 @@ class IncidentPolicy
     }
 
 
+    public function store($user)
+    {
+        return $user->group_id == User::GROUP_REGION_MANAGER || $user->group_id == User::GROUP_DISTRICT_MANAGER ;
+    }
+
+
 
     private function incidentBelongsToDistrictManager($user, Incident $incident)
     {

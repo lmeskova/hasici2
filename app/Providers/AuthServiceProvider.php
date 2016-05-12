@@ -29,6 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('update-incident', 'App\Policies\IncidentPolicy@update');
         $gate->define('show-incident', 'App\Policies\IncidentPolicy@show');
         $gate->define('destroy-incident', 'App\Policies\IncidentPolicy@destroy');
+        $gate->define('store-incident', 'App\Policies\IncidentPolicy@store');
 
 
 

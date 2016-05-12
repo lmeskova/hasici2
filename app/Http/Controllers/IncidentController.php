@@ -10,6 +10,7 @@ use App\IndustryType;
 use App\InsuranceCompany;
 use App\Ownership;
 use App\Town;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -33,14 +34,19 @@ class IncidentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Guard $auth)
     {
         $insuranceCompanies = InsuranceCompany::all();
         $industryTypes = IndustryType::all();
         $ownerships = Ownership::all();
         $damageSpecifications = DamageSpecification::all();
         $damageTypes = DamageType::all();
-        $towns = Town::all();
+        
+        if($auth->user()->isDistrictManager()){
+            $towns = Town::userDistrict($auth->user())->get();
+        }else{
+            $towns = Town::all();
+        }
 
         return view('incident.create', [
             'insuranceCompanies' => $insuranceCompanies,
@@ -62,6 +68,11 @@ class IncidentController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+
+        if(Gate::denies('store-incident')){
+            abort(404);
+        }
+        
 
 
         $validator = Validator::make($request->all(), [

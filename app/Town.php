@@ -20,4 +20,15 @@ class Town extends Model {
 		return $this->belongsTo('App\District', 'district_id');
 	}
 
+	/**
+	 * Scope a query to only include popular users.
+	 *
+	 * @param $query
+	 * @param $user
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+	public function scopeUserDistrict($query, $user)
+	{
+		return $query->where('district_id', $user->district_id);
+	}
 }

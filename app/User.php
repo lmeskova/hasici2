@@ -58,4 +58,14 @@ class User extends Authenticatable
     {
         return $this->group_id == User::GROUP_ADMIN;
     }
+
+    public function isRegionManager()
+    {
+        return $this->group_id == User::GROUP_REGION_MANAGER;
+    }
+
+    public function isDistrictManager()
+    {
+        return $this->group_id == User::GROUP_DISTRICT_MANAGER;
+    }
 }
