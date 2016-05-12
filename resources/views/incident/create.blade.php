@@ -46,7 +46,7 @@
             <label class="col-sm-2 control-label">Obec</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <select class="form-control" name="town_id">
+                    <select class="form-control select2" name="town_id">
                         <option ></option>
 
                         @foreach($towns as $town)
