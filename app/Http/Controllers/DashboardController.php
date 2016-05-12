@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $incidents = Incident::all();
+        $incidents = Incident::with(['industryType', 'town'])->get();
 
         return view('dashboard', [
             'incidents' => $incidents
