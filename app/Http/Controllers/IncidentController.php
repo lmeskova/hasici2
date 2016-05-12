@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use Laracasts\Flash\Flash;
 
 class IncidentController extends Controller
 {
@@ -105,6 +106,9 @@ class IncidentController extends Controller
 
         $incident->insuranceCompanies()->detach();
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
+
+
+        Flash::success('Incident úspešne vytvorený :)');
 
         return redirect()->route('dashboard');
 

@@ -158,6 +158,7 @@ return [
 
         Gvb\Whoops\ServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
 ],
 
@@ -207,6 +208,8 @@ return [
 
 
         'Input' => \Illuminate\Support\Facades\Input::class,
+
+        'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 
