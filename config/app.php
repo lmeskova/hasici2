@@ -157,6 +157,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Gvb\Whoops\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 ],
 
