@@ -31,6 +31,11 @@ class User extends Authenticatable
   	use SoftDeletes;
   
   	protected $dates = ['deleted_at'];
+
+    const GROUP_ADMIN = 1;
+    const GROUP_REGION_MANAGER = 2;
+    const GROUP_DISTRICT_MANAGER = 3;
+    const GROUP_MINISTER = 4;
     
     
     public function incidents()
@@ -42,5 +47,15 @@ class User extends Authenticatable
     public function group()
     {
         return $this->belongsTo(UserGroup::class, 'group_id');
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class, 'district_id');
+    }
+
+    public function isSuperAdmin()
+    {
+        return $this->group_id == User::GROUP_ADMIN;
     }
 }

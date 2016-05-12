@@ -13,6 +13,7 @@ use App\Town;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 
 class IncidentController extends Controller
@@ -106,7 +107,13 @@ class IncidentController extends Controller
      */
     public function show($id)
     {
-        //
+        $incident = Incident::findOrFail($id);
+
+        if(Gate::denies('show-incident', $incident)){
+            abort(404);
+        }
+
+        // return view('incident.show', ['incident' => $incident]);
     }
 
     /**
@@ -118,6 +125,13 @@ class IncidentController extends Controller
     public function edit($id)
     {
         $incident = Incident::findOrFail($id);
+
+        if(Gate::denies('update-incident', $incident)){
+            abort(404);
+        }
+
+
+
 
 
         $incidentInsuranceCompanies = $incident->insuranceCompanies->map(function($item){
@@ -159,6 +173,10 @@ class IncidentController extends Controller
     public function update(Request $request, $id)
     {
         $incident = Incident::findOrFail($id);
+
+        if(Gate::denies('update-incident', $incident)){
+            abort(404);
+        }
 
 
         $validator = Validator::make($request->all(), [
