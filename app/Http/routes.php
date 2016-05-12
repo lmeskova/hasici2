@@ -95,3 +95,6 @@ Route::get('/dummy', function () {
 
 
 });
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
