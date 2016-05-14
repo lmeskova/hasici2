@@ -68,13 +68,10 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
 
         if(Gate::denies('store-incident')){
             abort(404);
         }
-        
-
 
         $validator = Validator::make($request->all(), [
             'evidence_number' => 'required|numeric',
@@ -96,11 +93,7 @@ class IncidentController extends Controller
                 ->back()
                 ->withErrors($validator)
                 ->withInput();
-
-
         }
-
-
 
         $incident = $request->user()->incidents()->create($request->all());
 

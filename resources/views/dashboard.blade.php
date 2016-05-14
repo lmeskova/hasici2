@@ -28,8 +28,11 @@
                 <td>{{$incident->report_date}}</td>
 
                 <td>
-                    <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
-
+                    @if($incident->incidentDetail)
+                        <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> Uprav detail požiaru</a>
+                    @else
+                        <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
+                    @endif
                     <a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> Uprav</a>
                 </td>
             </tr>

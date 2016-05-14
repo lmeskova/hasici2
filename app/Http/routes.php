@@ -70,7 +70,10 @@ Route::group([], function(){
 
                 Route::get('/{incidentDetailId}', 'IncidentDetailController@show');
 
-                Route::get('/{incidentDetailId}/edit', 'IncidentDetailController@edit');
+                Route::get('/{incidentDetailId}/edit', [
+                    'as' => 'edit',
+                    'uses' => 'IncidentDetailController@edit'
+                ]);
                 Route::post('/{incidentDetailId}/edit', 'IncidentDetailController@update');
 
             });
