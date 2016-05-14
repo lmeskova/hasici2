@@ -52,6 +52,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrganizationShortcomingsSeeder::class);
         $this->call(ActionShortcomingsSeeder::class);
         $this->call(IncidentConclusionsSeeder::class);
+        $this->call(TownsSeeder::class);
         $this->call(UserGroupSeeder::class);
         
         
