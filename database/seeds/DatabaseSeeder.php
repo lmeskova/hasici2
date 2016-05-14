@@ -55,6 +55,12 @@ class DatabaseSeeder extends Seeder
         $this->call(DistrictsSeeder::class);
         $this->call(TownsSeeder::class);
         $this->call(UserGroupSeeder::class);
+
+
+
+
+
+        $this->call(DummyDataSeeder::class);
         
         
         
