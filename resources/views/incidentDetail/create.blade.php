@@ -98,7 +98,7 @@
                     <select class="form-control" name="flammable_substance_id">
                         <option ></option>
                         @foreach($flammableSubstances as $substance)
-                            <option value="{{ $substance->id }} @if($substance->id == Input::old('flammable_substance_id'))
+                            <option value="{{ $substance->id }}" @if($substance->id == Input::old('flammable_substance_id'))
                                     selected @endif>({{ $substance->code }}) {{ $substance->name }}</option>
                         @endforeach
                                     </select>
