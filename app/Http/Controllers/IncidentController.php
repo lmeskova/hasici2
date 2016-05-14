@@ -102,7 +102,7 @@ class IncidentController extends Controller
 
 
 
-        $incident = Incident::create($request->all());
+        $incident = $request->user()->incidents()->create($request->all());
 
         $incident->insuranceCompanies()->detach();
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));

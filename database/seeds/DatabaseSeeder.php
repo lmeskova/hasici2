@@ -1,5 +1,6 @@
 <?php
 
+use App\UserGroup;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
@@ -51,6 +52,8 @@ class DatabaseSeeder extends Seeder
         $this->call(OrganizationShortcomingsSeeder::class);
         $this->call(ActionShortcomingsSeeder::class);
         $this->call(IncidentConclusionsSeeder::class);
+        $this->call(UserGroupSeeder::class);
+        
         
         
     }
