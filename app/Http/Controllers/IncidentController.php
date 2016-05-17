@@ -137,10 +137,7 @@ class IncidentController extends Controller
         if(Gate::denies('update-incident', $incident)){
             abort(404);
         }
-
-
-
-
+        
 
         $incidentInsuranceCompanies = $incident->insuranceCompanies->map(function($item){
             return $item->id;
