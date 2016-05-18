@@ -22,11 +22,16 @@
                     <select class="form-control" name="area_id">
                         <option ></option>
                         @foreach($areas as $area)
+                            @if(in_array($area->code, ['1000', '1100']))
+                                <option value="{{ $area->id }}" disabled class="bg-info text-info">({{$area->code}}){{ $area->name }}</option>
+                            @else
                             <option value="{{ $area->id }}"
                                     @if(Input::old('area_id') ? ($area->id == Input::old('area_id')) : ($area->id == $incidentDetail->area_id)) selected
                                     @endif
                             >({{ $area->code }}) {{ $area->name }}</option>
-                        @endforeach
+                            @endif
+                         @endforeach
+
                     </select>
                 </p>
             </div>

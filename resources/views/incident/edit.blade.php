@@ -152,7 +152,7 @@
                         <option ></option>
                         @foreach($industryTypes as $type)
                             @if(in_array($type->id, ['02', '08', '17', '26', '41', '49', '56', '65']))
-                                <option value="{{ $type->id }}" disabled class="bg-info text-info">{{ $type->name }}</option>
+                                <option value="{{ $type->id }}" disabled class="bg-info text-info">({{$type->code}}) {{ $type->name }}</option>
                             @else
                                 <option value="{{ $type->id }}"
                                     @if(Input::old('industry_type_id') ? ($type->id == Input::old('industry_type_id')) : ($type->id == $incident->industry_type_id))

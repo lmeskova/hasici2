@@ -22,8 +22,25 @@
                     <select class="form-control" name="area_id">
                         <option ></option>
                         @foreach($areas as $area)
+                            @if(in_array($area->code, ['1000', '2000','3000','4000', '5000','6000']))
+                                <option value="{{ $area->id }}" disabled class="bg-primary text-primary">({{$area->code}}) {{ $area->name }}</option>
+                            @else
+                                @if(in_array($area->code, ['9000']))
+                                    <option value="{{ $area->id }}" class="bg-primary text-primary">({{$area->code}}) {{ $area->name }}</option>
+                                @else
+                            @if(in_array($area->code, ['1100', '1200','1300','1400', '1500','1600','1700','1800','1900',
+                            '2100', '2200','2300','2400', '2500','2600','2700','2800','2900',
+                            '3100', '3200','3300','3400', '3500','3600','3700','3800','3900',
+                            '4100', '4200','4300','4400', '4500','4600','4700','4800','4900',
+                            '5100', '5200','5300','5400', '5500','5600','5700','5800','5900',
+                            '6100', '6200','6300','6400', '6500','6600','6700','6800','6900']))
+                                <option value="{{ $area->id }}" disabled class="bg-info text-info">({{$area->code}}) {{ $area->name }}</option>
+                            @else
                             <option value="{{ $area->id }}" @if($area->id == Input::old('area_id'))
                             selected @endif>({{ $area->code }}) {{ $area->name }}</option>
+                            @endif
+                            @endif
+                            @endif
                         @endforeach
                     </select>
                 </p>
@@ -37,8 +54,16 @@
                     <select class="form-control" name="fire_location_id">
                         <option ></option>
                         @foreach($fireLocations as $location)
+                            @if(in_array($location->code, ['1000', '2000','3000','4000', '5000','6000']))
+                                <option value="{{ $location->id }}" disabled class="bg-info text-info">({{$location->code}}) {{ $location->name }}</option>
+                            @else
+                                @if(in_array($location->code, ['7000']))
+                                    <option value="{{ $location->id }}" class="bg-primary text-primary">({{$location->code}}) {{ $location->name }}</option>
+                                    @else
                             <option value="{{ $location->id }}" @if($location->id == Input::old('fire_location_id'))
                             selected @endif>({{ $location->code }}) {{ $location->name }}</option>
+                                @endif
+                            @endif
                         @endforeach
                     </select>
                 </p>
