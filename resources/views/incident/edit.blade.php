@@ -5,7 +5,7 @@
 
 
 
-    <h1 class="text-center form-group">Základné údaje o požiari - pridávanie dát</h1>
+    <h1 class="text-center form-group">Základné údaje o požiari - editovanie dát</h1>
 
 
     <form class="form-horizontal" method="post" action="">
