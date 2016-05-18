@@ -20,7 +20,7 @@
             <label class="col-sm-2 control-label">Evidečné číslo udalosti</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <input type="number" class="form-control" name="evidence_number" value="{{Input::old('evidence_number') ? Input::old('evidence_number') : $incident->evidence_number}}">
+                    <input type="number" class="form-control" disabled value="{{$incident->evidence_number}}">
 
                 </p>
             </div>

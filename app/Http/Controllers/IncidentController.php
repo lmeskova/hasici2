@@ -68,13 +68,18 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
+        /*
+        $evc = '';
 
+
+        return $evc;
+
+        */
         if(Gate::denies('store-incident')){
             abort(404);
         }
 
         $validator = Validator::make($request->all(), [
-            'evidence_number' => 'required|numeric',
             'report_date' => 'required|date',
             'observe_date' => 'required|date',
             'address' => 'required',
@@ -185,7 +190,6 @@ class IncidentController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'evidence_number' => 'required|numeric',
             'report_date' => 'required|date',
             'observe_date' => 'required|date',
             'address' => 'required',

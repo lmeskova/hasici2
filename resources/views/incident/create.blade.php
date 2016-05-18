@@ -16,16 +16,6 @@
             <li>{{ $error }}</li>
         @endforeach
         </ul>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Evidečné číslo udalosti</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">
-                    <input type="number" class="form-control" name="evidence_number" value="{{Input::old('evidence_number')}}">
-
-                </p>
-            </div>
-        </div>
-
         <div class="row form-group">
             <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
             <div class="col-sm-4">
