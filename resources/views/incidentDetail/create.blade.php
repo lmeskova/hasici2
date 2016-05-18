@@ -57,7 +57,7 @@
                             @if(in_array($location->code, ['1000', '2000','3000','4000', '5000','6000']))
                                 <option value="{{ $location->id }}" disabled class="bg-info text-info">({{$location->code}}) {{ $location->name }}</option>
                             @else
-                                @if(in_array($location->code, ['7000']))
+                                @if(in_array($location->code, ['7000','0000']))
                                     <option value="{{ $location->id }}" class="bg-primary text-primary">({{$location->code}}) {{ $location->name }}</option>
                                     @else
                             <option value="{{ $location->id }}" @if($location->id == Input::old('fire_location_id'))

@@ -90,8 +90,6 @@ Route::group([], function(){
                 ]);
                 Route::post('/create', 'IncidentDamagedObjectController@store');
 
-
-
                 Route::get('/{incidentDamagedObject}', 'IncidentDamagedObjectController@show');
 
                 Route::get('/{incidentDamagedObject}/edit', 'IncidentDamagedObjectController@edit');

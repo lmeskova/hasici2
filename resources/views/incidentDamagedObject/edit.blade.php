@@ -66,8 +66,10 @@
                     <select class="form-control" name="segment_altitude_id">
                         <option ></option>
                         @foreach($segmentAltitudes as $altitude)
-                            <option value="{{ $altitude->id }}" @if($altitude->id == Input::old('segment_altitude_id'))
-                            selected @endif>({{ $altitude->code }}) {{ $altitude->name }}</option>
+                            <option value="{{ $altitude->id }}"
+                                    @if(Input::old('segment_altitude_id') ? ($altitude->id == Input::old('segment_altitude_id')) : ($altitude->id == $incidentDamagedObject->segment_altitude_id)) selected
+                                    @endif
+                            >({{ $altitude->code }}) {{ $altitude->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -81,8 +83,10 @@
                     <select class="form-control" name="fire_resistance_id">
                         <option ></option>
                         @foreach($fireResistances as $resistance)
-                            <option value="{{ $resistance->id }}" @if($resistance->id == Input::old('fire_resistance_id'))
-                            selected @endif>({{ $resistance->code }}) {{ $resistance->name }}</option>
+                            <option value="{{ $resistance->id }}"
+                                    @if(Input::old('fire_resistance_id') ? ($resistance->id == Input::old('fire_resistance_id')) : ($resistance->id == $incidentDamagedObject->fire_resistance_id)) selected
+                                    @endif
+                            >({{ $resistance->code }}) {{ $resistance->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -96,8 +100,10 @@
                     <select class="form-control" name="flammability_of_object_id">
                         <option ></option>
                         @foreach($flammabilityOfObjects as $object)
-                            <option value="{{ $object->id }}" @if($object->id == Input::old('flammability_of_object_id'))
-                            selected @endif>({{ $object->code }}) {{ $object->name }}</option>
+                            <option value="{{ $object->id }}"
+                                    @if(Input::old('flammability_of_object_id') ? ($object->id == Input::old('flammability_of_object_id')) : ($object->id == $incidentDamagedObject->flammability_of_object_id)) selected
+                                    @endif
+                            >({{ $object->code }}) {{ $object->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -112,8 +118,10 @@
                     <select class="form-control" name="fire_shutter_id">
                         <option ></option>
                         @foreach($fireShutters as $shutter)
-                            <option value="{{ $shutter->id }}" @if($shutter->id == Input::old('fire_shutter_id'))
-                            selected @endif>({{ $shutter->code }}) {{ $shutter->name }}</option>
+                            <option value="{{ $shutter->id }}"
+                                    @if(Input::old('fire_shutter_id') ? ($shutter->id == Input::old('fire_shutter_id')) : ($shutter->id == $incidentDamagedObject->fire_shutter_id)) selected
+                                    @endif
+                            >({{ $shutter->code }}) {{ $shutter->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -128,8 +136,10 @@
                     <select class="form-control" name="shutter_resistance_id">
                         <option ></option>
                         @foreach($shutterResistances as $resistance)
-                            <option value="{{ $resistance->id }}" @if($resistance->id == Input::old('shutter_resistance_id'))
-                            selected @endif>({{ $resistance->code }}) {{ $resistance->name }}</option>
+                            <option value="{{ $resistance->id }}"
+                                    @if(Input::old('shutter_resistance_id') ? ($resistance->id == Input::old('shutter_resistance_id')) : ($resistance->id == $incidentDamagedObject->shutter_resistance_id)) selected
+                                    @endif
+                            >({{ $resistance->code }}) {{ $resistance->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -143,8 +153,10 @@
                     <select class="form-control" name="spreading_cause_id">
                         <option ></option>
                         @foreach($spreadingCauses as $cause)
-                            <option value="{{ $cause->id }}" @if($cause->id == Input::old('spreading_cause_id'))
-                            selected @endif>({{ $cause->code }}) {{ $cause->name }}</option>
+                            <option value="{{ $cause->id }}"
+                                    @if(Input::old('spreading_cause_id') ? ($cause->id == Input::old('spreading_cause_id')) : ($cause->id == $incidentDamagedObject->spreading_cause_id)) selected
+                                    @endif
+                            >({{ $cause->code }}) {{ $cause->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -158,8 +170,10 @@
                     <select class="form-control" name="fire_alarm_id">
                         <option ></option>
                         @foreach($fireAlarms as $alarm)
-                            <option value="{{ $alarm->id }}" @if($alarm->id == Input::old('fire_alarm_id'))
-                            selected @endif>({{ $alarm->code }}) {{ $alarm->name }}</option>
+                            <option value="{{ $alarm->id }}"
+                                    @if(Input::old('fire_alarm_id') ? ($alarm->id == Input::old('fire_alarm_id')) : ($alarm->id == $incidentDamagedObject->fire_alarm_id)) selected
+                                    @endif
+                            >({{ $alarm->code }}) {{ $alarm->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -173,8 +187,10 @@
                     <select class="form-control" name="fire_extinguisher_id">
                         <option ></option>
                         @foreach($fireExtinguishers as $extinguisher)
-                            <option value="{{ $extinguisher->id }}" @if($extinguisher->id == Input::old('fire_extinguisher_id'))
-                            selected @endif>({{ $extinguisher->code }}) {{ $extinguisher->name }}</option>
+                            <option value="{{ $extinguisher->id }}"
+                                    @if(Input::old('fire_extinguisher_id') ? ($extinguisher->id == Input::old('fire_extinguisher_id')) : ($extinguisher->id == $incidentDamagedObject->fire_extinguisher_id)) selected
+                                    @endif
+                            >({{ $extinguisher->code }}) {{ $extinguisher->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -188,8 +204,10 @@
                     <select class="form-control" name="chemical_id">
                         <option ></option>
                         @foreach($chemicals as $chemical)
-                            <option value="{{ $chemical->id }}" @if($chemical->id == Input::old('chemical_id'))
-                            selected @endif>({{ $chemical->code }}) {{ $chemical->name }}</option>
+                            <option value="{{ $chemical->id }}"
+                                    @if(Input::old('chemical_id') ? ($chemical->id == Input::old('chemical_id')) : ($chemical->id == $incidentDamagedObject->chemical_id)) selected
+                                    @endif
+                            >({{ $chemical->code }}) {{ $chemical->name }}</option>
                         @endforeach
                     </select>
                 </p>
