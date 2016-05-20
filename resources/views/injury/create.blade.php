@@ -23,7 +23,7 @@
                         <option ></option>
                         @foreach($injuryTypes as $type)
                             <option value="{{ $type->id }}" @if($type->id == Input::old('injury_type_id'))
-                            selected @endif>({{ $type->code }}) {{ $type>name }}</option>
+                            selected @endif>({{ $type->code }}) {{ $type->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -39,7 +39,7 @@
                         <option ></option>
                         @foreach($injuryCategories as $category)
                             <option value="{{ $category->id }}" @if($category->id == Input::old('injury_category_id'))
-                            selected @endif>({{ $category->code }}) {{ $category>name }}</option>
+                            selected @endif>({{ $category->code }}) {{ $category->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -54,7 +54,7 @@
                         <option ></option>
                         @foreach($injuryCircumstances as $circumstance)
                             <option value="{{ $circumstance->id }}" @if($circumstance->id == Input::old('injury_circumstances_id'))
-                            selected @endif>({{ $circumstance->code }}) {{ $circumstance>name }}</option>
+                            selected @endif>({{ $circumstance->code }}) {{ $circumstance->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -69,7 +69,7 @@
                         <option ></option>
                         @foreach($injuryCauses as $cause)
                             <option value="{{ $cause->id }}" @if($cause->id == Input::old('injury_causes_id'))
-                            selected @endif>({{ $cause->code }}) {{ $cause>name }}</option>
+                            selected @endif>({{ $cause->code }}) {{ $cause->name }}</option>
                         @endforeach
                     </select>
                 </p>

@@ -122,7 +122,7 @@ class IncidentDetailController extends Controller
 
         $incident->incidentDetail()->create($request->all());
 
-        Flash::success('Detail incidentu úspešne vytvorený :)');
+        Flash::success('Detail incidentu vytvorený.');
 
         return redirect()->route('dashboard');
     }

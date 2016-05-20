@@ -101,7 +101,7 @@ Route::group([], function(){
             });
 
             Route::group([
-                'as' => 'Injury.',
+                'as' => 'injury.',
                 'prefix' => 'injury'
             ], function(){
 
@@ -111,13 +111,13 @@ Route::group([], function(){
                 ]);
                 Route::post('/create', 'InjuryController@store');
 
-                Route::get('/{injury}', 'InjuryController@show');
+                Route::get('/{injuryId}', 'InjuryController@show');
 
                 Route::get('/{injuryId}/edit', [
                     'as' => 'edit',
                     'uses' => 'InjuryController@edit'
                 ]);
-                Route::post('/{injury}/edit', 'InjuryController@update');
+                Route::post('/{injuryId}/edit', 'InjuryController@update');
 
             });
         });
