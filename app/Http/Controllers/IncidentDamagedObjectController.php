@@ -168,7 +168,7 @@ class IncidentDamagedObjectController extends Controller
      */
     public function update(Request $request, $incidentId, $incidentDamagedObjectId)
     {
-        $incidentDamagedObject = IncidentDamagedObject::findOrFail($incidentDamagedObjectId);
+        $incidentDamagedObject = DamagedObject::findOrFail($incidentDamagedObjectId);
 
         $validator = Validator::make($request->all(), [
             "dimension_value" => "numeric",
