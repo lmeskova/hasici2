@@ -78,6 +78,11 @@ class Incident extends Model {
 		return $this->hasOne('App\DamagedObject', 'incident_id');
 	}
 
+	public function images()
+	{
+		return $this->hasMany(Image::class, 'incident_id');
+	}
+
 	public function getReportDateAttribute($value)
 	{
 		return Carbon::parse($value);

@@ -68,13 +68,8 @@ class IncidentController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        $evc = '';
+        //dd($request->file('images'));
 
-
-        return $evc;
-
-        */
         if(Gate::denies('store-incident')){
             abort(404);
         }
@@ -101,6 +96,17 @@ class IncidentController extends Controller
         }
 
         $incident = $request->user()->incidents()->create($request->all());
+
+        foreach($request->file('images') as $image){
+            $hash = md5($image->getClientOriginalName().microtime()).'.'.$image->getClientOriginalExtension();
+
+            $image->move(public_path('images'), $hash);
+
+            $incident->images()->create([
+                'name' => $image->getClientOriginalName(),
+                'hash' => $hash
+            ]);
+        }
 
         $incident->insuranceCompanies()->detach();
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));

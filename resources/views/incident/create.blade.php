@@ -8,7 +8,7 @@
     <h1 class="text-center form-group">Základné údaje o požiari - pridávanie dát</h1>
 
 
-    <form class="form-horizontal" method="post" action="">
+    <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
 
         {{csrf_field()}}
         <ul>
@@ -160,6 +160,14 @@
                 Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" value="{{Input::old('saved_value')}}">
             </p>
         </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Škoda (€)</label>
+            <p class="form-control-static text-center">
+                <input type="file" multiple class="text-center" name="images[]" value="{{Input::old('saved_value')}}">
+            </p>
+        </div>
+
 
         <div class="row text-right">
             <!-- <button type="button" class="btn btn-primary btn-lg"><a href="/details" role="button">Detaily</a></button>-->
