@@ -80,7 +80,7 @@ Route::group([], function(){
 
 
             Route::group([
-                'as' => 'incidentObject.',
+                'as' => 'incidentDamagedObject.',
                 'prefix' => 'incident-damaged-object'
             ], function(){
 

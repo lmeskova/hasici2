@@ -106,7 +106,7 @@ class IncidentController extends Controller
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
 
 
-        Flash::success('Incident úspešne vytvorený!');
+        Flash::success('Incident vytvorený.');
 
         return redirect()->route('dashboard');
 
@@ -218,10 +218,8 @@ class IncidentController extends Controller
         $incident->insuranceCompanies()->detach();
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
 
-
+        Flash::success('Incident upravený.');
         return redirect()->route('dashboard');
-
-
 
 
 

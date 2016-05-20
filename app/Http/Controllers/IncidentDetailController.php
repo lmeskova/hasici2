@@ -91,11 +91,7 @@ class IncidentDetailController extends Controller
      */
     public function store($incidentId, Request $request)
     {
-
-
         $incident = Incident::findOrFail($incidentId);
-
-
 
         $validator = Validator::make($request->all(), [
             "area_id" => "numeric",
@@ -234,7 +230,7 @@ class IncidentDetailController extends Controller
 
         $incidentDetail->update($request->all());
 
-        Flash::success('Detail incidentu úspešne upraveny :)');
+        Flash::success('Detail incidentu upravený.');
 
         return redirect()->route('dashboard');
 
