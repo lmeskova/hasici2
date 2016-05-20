@@ -92,8 +92,11 @@ Route::group([], function(){
 
                 Route::get('/{incidentDamagedObject}', 'IncidentDamagedObjectController@show');
 
-                Route::get('/{incidentDamagedObject}/edit', 'IncidentDamagedObjectController@edit');
-                Route::post('/{incidentDamagedObject}/edit', 'IncidentDamagedObjectController@update');
+                Route::get('/{incidentDamagedObjectId}/edit', [
+                    'as' => 'edit',
+                    'uses' => 'IncidentDamagedObjectController@edit'
+                ]);
+                Route::post('/{incidentDamagedObjectId}/edit', 'IncidentDamagedObjectController@update');
 
             });
         });
