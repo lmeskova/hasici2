@@ -95,8 +95,29 @@ Route::group([], function(){
                 Route::get('/{incidentDamagedObjectId}/edit', [
                     'as' => 'edit',
                     'uses' => 'IncidentDamagedObjectController@edit'
-                ]);
+                ]); 
                 Route::post('/{incidentDamagedObjectId}/edit', 'IncidentDamagedObjectController@update');
+
+            });
+
+            Route::group([
+                'as' => 'Injury.',
+                'prefix' => 'injury'
+            ], function(){
+
+                Route::get('/create', [
+                    'as' => 'create',
+                    'uses' => 'InjuryController@create'
+                ]);
+                Route::post('/create', 'InjuryController@store');
+
+                Route::get('/{injury}', 'InjuryController@show');
+
+                Route::get('/{injuryId}/edit', [
+                    'as' => 'edit',
+                    'uses' => 'InjuryController@edit'
+                ]);
+                Route::post('/{injury}/edit', 'InjuryController@update');
 
             });
         });

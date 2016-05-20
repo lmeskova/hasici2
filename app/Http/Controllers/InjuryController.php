@@ -25,7 +25,11 @@ class InjuryController extends Controller
      */
     public function create()
     {
-        //
+        $areas = Area::all();
+
+        return view('incidentInjury.create', [
+            'areas' => $areas,
+        ]);
     }
 
     /**
