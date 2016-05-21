@@ -35,7 +35,7 @@
                 @endforeach
             </table>
         </div>
-        <div class="col-lg-10 col-lg-offset-2 text-center">
+        <div class="col-lg-4 col-lg-offset-4 text-center">
             {!! $incidents->links() !!}
         </div>
   </div>

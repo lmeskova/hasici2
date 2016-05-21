@@ -5,7 +5,7 @@
 
 
 
-    <h1 class="text-center form-group">Základné údaje o požiari - pridávanie dát</h1>
+    <h1 class="text-center form-group col-lg-12">Základné údaje o incidente</h1>
 
 
     <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
@@ -36,9 +36,8 @@
             <label class="col-sm-2 control-label">Obec</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <select class="form-control select2" name="town_id">
+                    <select class="form-control select2" name="town_id"  data-placeholder="" data-allow-clear="false">
                         <option ></option>
-
                         @foreach($towns as $town)
                             @if (in_array($town->district_id, ['11', '12', '14','29','32','35','39','55','71','72','79']))
                             <option value="{{ $town->id }}"
@@ -86,12 +85,12 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
 
-                    <select class="form-control" name="ownership_id">
+                    <select class="form-control select2" name="ownership_id" data-placeholder="" data-allow-clear="false">
                         <option ></option>
                         @foreach($ownerships as $ownership)
                             <option value="{{ $ownership->id }}"
                                     @if($ownership->id == Input::old('ownership_id')) selected @endif
-                            >({{ $ownership->code }}) {{ $ownership->name }}</option>
+                            >{{ $ownership->code }} | {{ $ownership->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -102,12 +101,12 @@
             <label class="col-sm-2 control-label">Určenie škody</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <select class="form-control" name="damage_specification_id">
+                    <select class="form-control select2" name="damage_specification_id" data-placeholder="" data-allow-clear="false">
                         <option ></option>
                         @foreach($damageSpecifications as $specification)
                             <option value="{{ $specification->id }}"
                                 @if($specification->id == Input::old('damage_specification_id')) selected @endif
-                            >({{ $specification->code }}) {{ $specification->name }}</option>
+                            >{{ $specification->code }} | {{ $specification->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -118,12 +117,12 @@
             <label class="col-sm-2 control-label">Charakter škôd</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <select class="form-control" name="damage_type_id">
+                    <select class="form-control select2" name="damage_type_id" data-placeholder="" data-allow-clear="false">
                         <option ></option>
                         @foreach($damageTypes as $type)
                             <option value="{{ $type->id }}"
                                     @if($type->id == Input::old('damage_type_id')) selected @endif
-                            >({{ $type->code }}) {{ $type->name }}</option>
+                            >{{ $type->code }} | {{ $type->name }}</option>
                         @endforeach
                     </select>
                 </p>
@@ -134,38 +133,52 @@
             <label class="col-sm-2 control-label">Odvetvie ekonomickej činnosti</label>
             <div class="col-sm-10">
                 <p class="form-control-static">
-                    <select class="form-control" name="industry_type_id">
+                    <select class="form-control select2" name="industry_type_id" data-placeholder="" data-allow-clear="false">
                         <option ></option>
                         @foreach($industryTypes as $type)
-                            @if(in_array($type->id, ['02', '08', '17', '26', '41', '49', '56', '65']))
-                                <option value="{{ $type->id }}" disabled class="bg-info text-info">{{ $type->name }}</option>
+                            @if(in_array($type->code, ['100', '200','300','400', '500','600','700','800','900']))
+                                <optgroup label="{{ $type->name }}"></optgroup>
                             @else
                                 <option value="{{ $type->id }}"
                                         @if($type->id == Input::old('industry_type_id')) selected @endif
-                                >({{ $type->code }}) {{ $type->name }}</option>
+                                >{{ $type->code }} | {{ $type->name }}</option>
                             @endif
                         @endforeach
-
                     </select>
                 </p>
             </div>
         </div>
 
-
         <div class="form-group">
             <label class="col-sm-2 control-label">Škoda (€)</label>
-            <p class="form-control-static text-center">
-                Priama: <input type="number" class="text-center" name="direct_damage_value" value="{{Input::old('direct_damage_value')}}">
-                Následná: <input type="number" class="text-center" name="followup_damage_value" value="{{Input::old('followup_damage_value')}}">
-                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" value="{{Input::old('saved_value')}}">
+            <div class="col-sm-10">
+            <p class="form-control-static">
+                Priama: <input type="number" class="text-center" name="direct_damage_value" min="0"
+                @if('direct_damage_value' == Input::old('direct_damage_value'))
+                value="{{Input::old('direct_damage_value')}}"
+                @else value="0"
+                @endif>
+
+                Následná: <input type="number" class="text-center" name="followup_damage_value" min="0"
+                @if('followup_damage_value' == Input::old('followup_damage_value'))
+                value="{{Input::old('followup_damage_value')}}" @else value="0"
+                @endif>
+
+                Uchránené hodnoty: <input type="number" class="text-center" name="saved_value" min="0"
+                @if('saved_value' == Input::old('saved_value'))
+                value="{{Input::old('saved_value')}}" @else value="0"
+                @endif>
             </p>
+            </div>
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Fotografie</label>
+            <label class="col-sm-2 control-label">Fotografická dokumentácia</label>
+            <div class="col-sm-10">
             <p class="form-control-static text-center">
                 <input type="file" multiple class="text-center" name="images[]" value="{{Input::old('saved_value')}}">
             </p>
+            </div>
         </div>
 
 

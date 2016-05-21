@@ -15,10 +15,10 @@ class DashboardController extends Controller
         if($auth->user()->isDistrictManager()){
             $incidents = Incident::whereHas('town', function($query) use ($auth){
                 $query->where('district_id', $auth->user()->district_id);
-            })->paginate(10);
+            })->paginate(7);
         }
         else{
-            $incidents = Incident::with(['industryType', 'incidentDetail', 'town'])->paginate(10);
+            $incidents = Incident::with(['industryType', 'incidentDetail', 'town'])->paginate(7);
         }
 
 

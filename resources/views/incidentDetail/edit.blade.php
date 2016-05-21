@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1 class="text-center form-group">Základné údaje o požiari - detaily</h1>
+    <h1 class="text-center form-group">Detaily incidentu</h1>
 
 
     <form class="form-horizontal" method="post" action="">
