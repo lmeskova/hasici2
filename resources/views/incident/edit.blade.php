@@ -177,8 +177,13 @@
             </p>
         </div>
 
+
         <div class="row text-right">
-            <!-- <button type="button" class="btn btn-primary btn-lg"><a href="/details" role="button">Detaily</a></button>-->
+            @if($incident->incidentDetail)
+                <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav detail požiaru</a>
+            @else
+                <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
+            @endif
             <button type="submit" class="btn btn-primary btn-lg">Uložiť záznam</button>
         </div>
 

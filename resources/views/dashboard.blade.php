@@ -2,8 +2,8 @@
 
 
 @section('content')
-    <div class="col-lg-2 text-left">
-        <a href="{{route('incident.create')}}" class="btn btn-success">Pridaj nový záznam</a>
+    <div class="text-left">
+        <a href="{{route('incident.create')}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridaj nový záznam</a>
     </div>
 
     <div class="row">
@@ -28,12 +28,8 @@
                         <td>{{$incident->report_date}}</td>
 
                         <td>
-                            @if($incident->incidentDetail)
-                                <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> Uprav detail požiaru</a>
-                            @else
-                                <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
-                            @endif
-                            <a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span> Uprav</a>
+
+                            <a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav</a>
                         </td>
                     </tr>
                 @endforeach

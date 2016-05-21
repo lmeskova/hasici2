@@ -10,14 +10,13 @@
     <!-- Bootstrap -->
     <link href="{{url('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('css/bootstrap-theme.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-
 
 
     <![endif]-->
@@ -41,8 +40,9 @@
             </button>
 
             <!-- Branding Image -->
+
             <a class="navbar-brand" href="{{ route('dashboard') }}">
-                Domov
+                Hlavná stránka
             </a>
         </div>
 
@@ -57,8 +57,9 @@
                     <li><a href="{{ url('/register') }}">Zaregistrovať</a></li>
                 @else
                     <li class="dropdown">
+
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
