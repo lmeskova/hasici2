@@ -51,17 +51,17 @@ class InjuryController extends Controller
      *
      * @param $incidentId
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function store($incidentId, Request $request)
     {
         $incident = Incident::findOrFail($incidentId);
 
         $validator = Validator::make($request->all(), [
-            'injuryTypes' => "numeric",
-            'injuryCategories' => "numeric",
-            'injuryCircumstances' => "numeric",
-            'injuryCauses' => "numeric",
+            'injury_type_id' => "numeric",
+            'injury_category_id' => "numeric",
+            'injury_circumstance_id' => "numeric",
+            'injury_cause_id' => "numeric",
         ]);
 
         if ($validator->fails()) {
@@ -70,7 +70,7 @@ class InjuryController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        
+
         $incident->injury()->create($request->all());
 
         Flash::success('Záznam o zranení vytvorený.');
@@ -124,10 +124,10 @@ class InjuryController extends Controller
         $injury = Injury::findOrFail($injuryId);
 
         $validator = Validator::make($request->all(), [
-            'injuryTypes' => "numeric",
-            'injuryCategories' => "numeric",
-            'injuryCircumstances' => "numeric",
-            'injuryCauses' => "numeric",
+            'injury_type_id' => "numeric",
+            'injury_category_id' => "numeric",
+            'injury_circumstance_id' => "numeric",
+            'injury_cause_id' => "numeric",
         ]);
 
         if ($validator->fails()) {

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1 class="text-center form-group">Zranenia</h1>
+    <h1 class="text-center form-group">Zranenie vzniknuté pri incidente</h1>
 
 
     <form class="form-horizontal" method="post" action="">
@@ -50,10 +50,10 @@
             <label class="col-sm-3 control-label">Okolnosti zranenia</label>
             <div class="col-sm-7">
                 <p class="form-control-static">
-                    <select class="form-control" name="injury_circumstances_id">
+                    <select class="form-control" name="injury_circumstance_id">
                         <option ></option>
                         @foreach($injuryCircumstances as $circumstance)
-                            <option value="{{ $circumstance->id }}" @if($circumstance->id == Input::old('injury_circumstances_id'))
+                            <option value="{{ $circumstance->id }}" @if($circumstance->id == Input::old('injury_circumstance_id'))
                             selected @endif>({{ $circumstance->code }}) {{ $circumstance->name }}</option>
                         @endforeach
                     </select>
@@ -65,10 +65,10 @@
             <label class="col-sm-3 control-label">Príčiny zranenia</label>
             <div class="col-sm-7">
                 <p class="form-control-static">
-                    <select class="form-control" name="injury_causes_id">
+                    <select class="form-control" name="injury_cause_id">
                         <option ></option>
                         @foreach($injuryCauses as $cause)
-                            <option value="{{ $cause->id }}" @if($cause->id == Input::old('injury_causes_id'))
+                            <option value="{{ $cause->id }}" @if($cause->id == Input::old('injury_cause_id'))
                             selected @endif>({{ $cause->code }}) {{ $cause->name }}</option>
                         @endforeach
                     </select>

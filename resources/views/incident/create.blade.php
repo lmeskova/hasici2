@@ -162,7 +162,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Škoda (€)</label>
+            <label class="col-sm-2 control-label">Fotografie</label>
             <p class="form-control-static text-center">
                 <input type="file" multiple class="text-center" name="images[]" value="{{Input::old('saved_value')}}">
             </p>
