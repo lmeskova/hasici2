@@ -26,6 +26,7 @@
                         <td>{{$incident->town ? $incident->town->name : null}}</td>
                         <td>{{$incident->address}}</td>
                         <td>{{$incident->report_date}}</td>
+                        <td><img</td>
 
                         <td>
 

@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <h1 class="text-center form-group">Detaily incidentu</h1>
+    <h3 class="text-center form-group">Detaily incidentu</h3>
 
 
     <form class="form-horizontal" method="post" action="">

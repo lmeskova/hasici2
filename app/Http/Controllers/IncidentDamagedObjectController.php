@@ -103,9 +103,9 @@ class IncidentDamagedObjectController extends Controller
 
         $incident->damagedObject()->create($request->all());
 
-        Flash::success('Objekt vytvorený.');
+        Flash::success('Záznam o poškodenom objekte vytvorený.');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.edit', [$incidentId]);
 
     }
 
@@ -195,9 +195,9 @@ class IncidentDamagedObjectController extends Controller
 
         $incidentDamagedObject->update($request->all());
 
-        Flash::success('Objekt upravený.');
+        Flash::success('Záznam o poškodenom objekte upravený.');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.edit', [$incidentId]);
 
     }
 

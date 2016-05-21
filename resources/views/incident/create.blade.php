@@ -5,7 +5,7 @@
 
 
 
-    <h1 class="text-center form-group col-lg-12">Základné údaje o incidente</h1>
+    <h3 class="text-center">Základné údaje o incidente</h3>
 
 
     <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
@@ -64,7 +64,8 @@
             <div class="col-sm-10">
                 <p class="form-control-static">
 
-                    <select multiple class="form-control" name="insurance_companies[]" id="insurance">
+                    <select multiple class="form-control" name="insurance_companies[]" id="insurance" data-toggle="tooltip" data-placement="bottom"
+                    title="Vyber viac poisťovní pridržaním ľavej klávesy Ctrl a kliknutím myši.">
                         @foreach($insuranceCompanies as $company)
                             @if(Input::old('insurance_companies'))
                                 <option value="{{ $company->id }}"
@@ -176,7 +177,7 @@
             <label class="col-sm-2 control-label">Fotografická dokumentácia</label>
             <div class="col-sm-10">
             <p class="form-control-static text-center">
-                <input type="file" multiple class="text-center" name="images[]" value="{{Input::old('saved_value')}}">
+                <input type="file" multiple class="text-center" name="images[]" value="{{Input::old('images')}}">
             </p>
             </div>
         </div>

@@ -124,7 +124,7 @@ class IncidentDetailController extends Controller
 
         Flash::success('Detail incidentu vytvorený.');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.edit', [$incidentId]);
     }
 
     /**
@@ -185,8 +185,6 @@ class IncidentDetailController extends Controller
             'actionShortcomings' => $actionShortcomings,
             'incidentConclusions' => $incidentConclusions,
             'incidentDetail' => $incidentDetail,
-
-
         ]);
     }
 
@@ -232,7 +230,7 @@ class IncidentDetailController extends Controller
 
         Flash::success('Detail incidentu upravený.');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.edit', [$incidentId]);
 
     }
 
