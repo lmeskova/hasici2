@@ -42,7 +42,7 @@ class DummyDataSeeder extends Seeder
                 'report_date' => \Carbon\Carbon::now(),
                 'observe_date' => \Carbon\Carbon::now(),
                 'address' => $this->faker->address,
-                //'ownership_id' => 5,
+                'ownership_id' => 5,
                 'damage_specification_id' => 5,
                 'damage_type_id' => 6,
                 'industry_type_id' => 6,

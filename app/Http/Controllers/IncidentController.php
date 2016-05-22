@@ -115,7 +115,7 @@ class IncidentController extends Controller
 
         Flash::success('Incident vytvorený.');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.show', [$incident->id]);
 
     }
 

@@ -53,7 +53,10 @@ Route::group([], function(){
             'prefix' => '/{incidentId}'
         ], function(){
 
-            Route::get('/', 'IncidentController@show');
+            Route::get('/', [
+                'as' => 'show',
+                'uses' => 'IncidentController@show'
+            ]);
 
             Route::group([
                 'as' => 'incidentDetail.',
