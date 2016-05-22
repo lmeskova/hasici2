@@ -97,17 +97,18 @@ class IncidentController extends Controller
 
         $incident = $request->user()->incidents()->create($request->all());
 
-        foreach($request->file('images') as $image){
-            $hash = md5($image->getClientOriginalName().microtime()).'.'.$image->getClientOriginalExtension();
+        if($request->file('images')[0]) {
+            foreach ($request->file('images') as $image) {
+                $hash = md5($image->getClientOriginalName() . microtime()) . '.' . $image->getClientOriginalExtension();
 
-            $image->move(public_path('images'), $hash);
+                $image->move(public_path('images'), $hash);
 
-            $incident->images()->create([
-                'name' => $image->getClientOriginalName(),
-                'hash' => $hash
-            ]);
+                $incident->images()->create([
+                    'name' => $image->getClientOriginalName(),
+                    'hash' => $hash
+                ]);
+            }
         }
-
         $incident->insuranceCompanies()->detach();
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
 
@@ -132,7 +133,7 @@ class IncidentController extends Controller
             abort(404);
         }
 
-        // return view('incident.show', ['incident' => $incident]);
+        return view('incident.show', ['incident' => $incident]);
     }
 
     /**
