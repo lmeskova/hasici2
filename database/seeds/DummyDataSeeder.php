@@ -39,7 +39,6 @@ class DummyDataSeeder extends Seeder
 
         for($i=0; $i < 20; $i++){
             $incident = $user->incidents()->create([
-                'evidence_number' => 46,
                 'report_date' => \Carbon\Carbon::now(),
                 'observe_date' => \Carbon\Carbon::now(),
                 'address' => $this->faker->address,

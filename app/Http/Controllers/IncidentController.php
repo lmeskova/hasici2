@@ -214,8 +214,6 @@ class IncidentController extends Controller
                 ->back()
                 ->withErrors($validator)
                 ->withInput();
-
-
         }
 
 
@@ -226,9 +224,6 @@ class IncidentController extends Controller
 
         Flash::success('Incident upravený.');
         return redirect()->route('dashboard');
-
-
-
     }
 
     /**

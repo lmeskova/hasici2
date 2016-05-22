@@ -27,6 +27,8 @@
 </head>
 <body id="app-layout" class="bg-info">
     <nav class="navbar navbar-default navbar-static-top">
+        <h1 class="nav text-center text-uppercase">Evidencia požiarov</h1>
+        <h2 class="text-center">Hasičský a záchranný zbor Slovenskej republiky</h2>
         <div class="container">
             <div class="navbar-header">
 
