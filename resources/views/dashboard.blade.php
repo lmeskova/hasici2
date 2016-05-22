@@ -26,8 +26,6 @@
                         <td>{{$incident->town ? $incident->town->name : null}}</td>
                         <td>{{$incident->address}}</td>
                         <td>{{$incident->report_date}}</td>
-                        <td><img</td>
-
                         <td>
 
                             <a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav</a>
