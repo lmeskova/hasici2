@@ -2,16 +2,10 @@
 
 
 @section('content')
-    <table>
-     <td>
-         <tr class="bg-success">
-             <h2 class="text-center text-uppercase">Incident č. {{$incident->evidence_number}}</h2>
-         </tr>
-     </td>
-    </table>
-    <div class="row">
-        <div class="col-md-4">
 
+    <h2 class="text-center text-uppercase">Incident č. {{$incident->evidence_number}}</h2>
+    <div class="row">
+        <div class="col-lg-4">
             <table class="table table-striped table-bordered">
                 <tr>
                     <td colspan="2"><h3 class="text-center">Incident</h3></td>
@@ -92,15 +86,14 @@
 -->
                 </tr>
                 <tr >
-                    <td colspan="2" class="text-center" ><a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a></td>
-
+                    <td colspan="2" class="text-center" ><a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a></td>
                 </tr>
             </table>
         </div>
 
 
         @if($incident->incidentDetail)
-        <div class="col-md-4">
+        <div class="col-lg-4">
 
             <table class="table table-striped table-bordered">
                 <tr>
@@ -169,9 +162,9 @@
                 <tr >
                     <td colspan="2" class="text-center" >
                         @if($incident->incidentDetail)
-                            <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
+                            <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
                         @else
-                            <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať detail incidentu</a>
+                            <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-plus"></span> Pridať detail incidentu</a>
                         @endif
                     </td>
 
@@ -179,13 +172,13 @@
             </table>
 
 
-        </div>
+            </div>
 
-@endif
+        @endif
 
 <div class="row">
         @if($incident->damagedObject)
-            <div class="col-md-4">
+            <div class="col-lg-4">
 
                 <table class="table table-striped table-bordered">
                     <tr>
@@ -238,20 +231,18 @@
                     <tr >
                         <td colspan="2" class="text-center" >
                                 @if($incident->damagedObject)
-                                    <a href="{{route('incident.incidentDamagedObject.edit', [$incident->id, $incident->damagedObject->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
+                                    <a href="{{route('incident.incidentDamagedObject.edit', [$incident->id, $incident->damagedObject->id])}}" class="btn btn-info btn-block btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
                                 @else
-                                    <a href="{{route('incident.incidentDamagedObject.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať poškodený objekt</a>
+                                    <a href="{{route('incident.incidentDamagedObject.create', [$incident->id])}}" class="btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať poškodený objekt</a>
                                 @endif
                         </td>
 
                     </tr>
                 </table>
 
-
 </div>
 @endif
 </div>
-
 </div>
 
 

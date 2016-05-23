@@ -5,7 +5,7 @@
 
 
 
-    <h3 class="text-center">Základné údaje o incidente</h3>
+
 
 
     <form class="form-horizontal" method="post" action="">
@@ -18,27 +18,26 @@
         </ul>
 
         <div class="form-group">
-            <label class="col-sm-2 control-label">Evidečné číslo udalosti</label>
-            <div class="col-sm-10">
-                <p class="form-control-static">
-                    <mark>{{$incident->evidence_number}}</mark>
+            <div >
 
+                <h3 class="text-center">Základné údaje o incidente</h3>
+                <p class="form-control-static text-center">
+                    <i>Evidečné číslo : {{$incident->evidence_number}}</i>
                 </p>
             </div>
         </div>
 
         <div class="row form-group">
-            <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
-            <div class="col-sm-4">
-                <p class="form-control-static">
-                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  $incident->report_date->format('Y-m-d\TH:i')  }}">
-                </p>
-            </div>
-
             <label for="observe_date" class="col-sm-2 control-label">Deň a čas spozorovania</label>
             <div class="col-sm-4">
                 <p class="form-control-static">
                     <input type="datetime-local" class="form-control" name="observe_date" value="{{ (Input::old('observe_date')) ?  Input::old('observe_date') :  $incident->observe_date->format('Y-m-d\TH:i')  }}">
+                </p>
+            </div>
+            <label for="report_date" class="col-sm-2 control-label">Deň a čas ohlásenia</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">
+                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  $incident->report_date->format('Y-m-d\TH:i')  }}">
                 </p>
             </div>
         </div>
@@ -186,14 +185,9 @@
             </div>
         </div>
 
-        <div class="row text-right">
+        <div class="row text-right col-lg-3 col-lg-offset-9">
 
-            @if($incident->incidentDetail)
-                <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav detail požiaru</a>
-            @else
-                <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
-            @endif
-            <button type="submit" class="btn btn-primary btn-lg">Uložiť záznam</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Uložiť</button>
         </div>
 
 

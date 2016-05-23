@@ -17,17 +17,16 @@
         @endforeach
         </ul>
         <div class="row form-group">
-            <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
-            <div class="col-sm-4">
-                <p class="form-control-static">
-                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  Carbon\Carbon::now()->format('Y-m-d\TH:i')  }}">
-                </p>
-            </div>
-
             <label for="observe_date" class="col-sm-2 control-label">Deň a čas spozorovania</label>
             <div class="col-sm-4">
                 <p class="form-control-static">
                     <input type="datetime-local" class="form-control" name="observe_date" value="{{ (Input::old('observe_date')) ?  Input::old('observe_date') :  Carbon\Carbon::now()->format('Y-m-d\TH:i')  }}">
+                </p>
+            </div>
+            <label class="col-sm-2 control-label">Deň a čas ohlásenia</label>
+            <div class="col-sm-4">
+                <p class="form-control-static">
+                    <input type="datetime-local" class="form-control" name="report_date" value="{{ (Input::old('report_date')) ?  Input::old('report_date') :  Carbon\Carbon::now()->format('Y-m-d\TH:i')  }}">
                 </p>
             </div>
         </div>
