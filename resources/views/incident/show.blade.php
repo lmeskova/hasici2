@@ -3,6 +3,9 @@
 
 @section('content')
 
+    <div class="col-lg-3 col-lg-offset-9">
+        <a href="{{route('dashboard')}}" class="btn btn-primary btn-lg btn-block"><< Naspäť</a>
+    </div>
     <h2 class="text-center text-uppercase">Incident č. {{$incident->evidence_number}}</h2>
     <div class="row">
         <div class="col-lg-4">

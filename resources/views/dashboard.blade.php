@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="text-left col-lg-3">
+    <div class="col-lg-3 col-lg-offset-9">
         <a href="{{route('incident.create')}}" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-plus"></span> Pridaj nový záznam</a>
     </div>
 
