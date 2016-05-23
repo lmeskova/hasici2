@@ -6,7 +6,10 @@
     <div class="row">
         <div class="col-md-5">
 
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td colspan="2"><h3 class="text-center">Incident</h3></td>
+                </tr>
                 <tr >
                     <td >Evidenčné číslo</td>
                     <td >{{$incident->evidence_number}}</td>
@@ -52,7 +55,7 @@
                     <td >{{$incident->followup_damage_value}}</td>
                 </tr>
                 <tr >
-                    <td >Uchrnánené hodnoty</td>
+                    <td >Uchránené hodnoty</td>
                     <td >{{$incident->saved_value}}</td>
                 </tr>
                 <tr >
@@ -69,27 +72,34 @@
                         </div>
                     </td>
                 </tr>
+                <!--
             <tr >
                 <td >Fotografická dokumentácia</td>
                 <td > </td>
             </tr>
+                <tr >
+                    <td >                @foreach($incident->images as $image)
+                            <div class="col-lg-3">
+                                <img src="{{public_path('images').'/'.$image->hash}}" class="img img-responsive">
+                            </div>
+                        @endforeach</td>
+-->
+                </tr>
+                <tr >
+                    <td colspan="2" class="text-center" ><a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a></td>
+
+                </tr>
             </table>
-
-            <div class="row">
-                @foreach($incident->images as $image)
-                    <div class="col-lg-3">
-                        <img src="{{public_path('images').'/'.$image->hash}}" class="img img-responsive">
-                    </div>
-                @endforeach
-            </div>
-
         </div>
 
 
         @if($incident->incidentDetail)
         <div class="col-md-5">
 
-            <table class="table table-striped">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td colspan="2"><h3 class="text-center">Detaily</h3></td>
+                </tr>
                 <tr >
                     <td >Priestor</td>
                     <td >{{$incident->incidentDetail->area ? $incident->incidentDetail->area->name : '-'}}</td>
@@ -140,15 +150,25 @@
                 </tr>
                 <tr >
                     <td >Nedostatky v organizácii s vplyvom na vznik požiaru</td>
-                    <td >{{$incident->incidentDetail->incidentCause ? $incident->incidentDetail->incidentCause->name : '-'}}</td>
+                    <td >{{$incident->incidentDetail->organizationShortcoming ? $incident->incidentDetail->organizationShortcoming->name : '-'}}</td>
                 </tr>
                 <tr >
                     <td >Nedostatky v činnostiach s vplyvom na šírenie požiaru</td>
-                    <td >{{$incident->incidentDetail->incidentCause ? $incident->incidentDetail->incidentCause->name : '-'}}</td>
+                    <td >{{$incident->incidentDetail->actionShortcoming ? $incident->incidentDetail->actionShortcoming->name : '-'}}</td>
                 </tr>
                 <tr >
                     <td >Uzatvorenie prípadu</td>
-                    <td >{{$incident->incidentDetail->incidentCause ? $incident->incidentDetail->incidentCause->name : '-'}}</td>
+                    <td >{{$incident->incidentDetail->incidentConclusion ? $incident->incidentDetail->incidentConclusion->name : '-'}}</td>
+                </tr>
+                <tr >
+                    <td colspan="2" class="text-center" >
+                        @if($incident->incidentDetail)
+                            <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
+                        @else
+                            <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať detail incidentu</a>
+                        @endif
+                    </td>
+
                 </tr>
             </table>
 
@@ -156,18 +176,98 @@
         </div>
 
 @endif
+<div class="row">
+        @if($incident->incidentDetail)
+            <div class="col-md-5">
+
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <td colspan="2"><h3 class="text-center">Detaily</h3></td>
+                    </tr>
+                    <tr >
+                        <td >Priestor</td>
+                        <td >{{$incident->incidentDetail->area ? $incident->incidentDetail->area->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Miesto vzniku požiaru</td>
+                        <td >{{$incident->incidentDetail->fireLocation ? $incident->incidentDetail->fireLocation->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Časť dopravného prostriedku a pracovného stroja</td>
+                        <td >{{$incident->incidentDetail->vehiclePart ? $incident->incidentDetail->vehiclePart->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Dopravníkové zariadenia</td>
+                        <td >{{$incident->incidentDetail->conveyorEquipment ? $incident->incidentDetail->conveyorEquipment->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Príčina vzniku požiaru</td>
+                        <td >{{$incident->incidentDetail->incidentCause ? $incident->incidentDetail->incidentCause->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Manipulácia s horľavými výbušnými látkami</td>
+                        <td >{{$incident->incidentDetail->flammableSubstances ? $incident->incidentDetail->flammableSubstances->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Iniciátor</td>
+                        <td >{{$incident->incidentDetail->initiator ? $incident->incidentDetail->initiator->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Časti elektrických rozvodov</td>
+                        <td >{{$incident->incidentDetail->electricalwiring ? $incident->incidentDetail->electricalwiring->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Pôsobenie iniciátora</td>
+                        <td >{{$incident->incidentDetail->initiatorsImpact ? $incident->incidentDetail->initiatorsImpact->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Látky, ktoré začali horieť ako prvé</td>
+                        <td >{{$incident->incidentDetail->burningSubstance ? $incident->incidentDetail->burningSubstance->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Látky, ktoré určovali rozvoj</td>
+                        <td >{{$incident->incidentDetail->followingSubstance ? $incident->incidentDetail->followingSubstance->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Trieda nebezpečnosti horľavých kvapalín</td>
+                        <td >{{$incident->incidentDetail->hazardClass ? $incident->incidentDetail->hazardClass->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Nedostatky v organizácii s vplyvom na vznik požiaru</td>
+                        <td >{{$incident->incidentDetail->organizationShortcoming ? $incident->incidentDetail->organizationShortcoming->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Nedostatky v činnostiach s vplyvom na šírenie požiaru</td>
+                        <td >{{$incident->incidentDetail->actionShortcoming ? $incident->incidentDetail->actionShortcoming->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td >Uzatvorenie prípadu</td>
+                        <td >{{$incident->incidentDetail->incidentConclusion ? $incident->incidentDetail->incidentConclusion->name : '-'}}</td>
+                    </tr>
+                    <tr >
+                        <td colspan="2" class="text-center" >
+                            @if($incident->incidentDetail)
+                                <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
+                            @else
+                                <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať detail incidentu</a>
+                            @endif
+                        </td>
+
+                    </tr>
+                </table>
+
+
+</div>
+
+        @endif
 
         <div class="col-md-2">
-            @if($incident->incidentDetail)
-                <a href="{{route('incident.incidentDetail.edit', [$incident->id, $incident->incidentDetail->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav detail požiaru</a>
-            @else
-                <a href="{{route('incident.incidentDetail.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridaj detail požiaru</a>
-            @endif
+
 
             @if($incident->damagedObject)
-                <a href="{{route('incident.incidentDamagedObject.edit', [$incident->id, $incident->damagedObject->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav poškodený objekt</a>
+                <a href="{{route('incident.incidentDamagedObject.edit', [$incident->id, $incident->damagedObject->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Upraviť</a>
             @else
-                <a href="{{route('incident.incidentDamagedObject.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridaj poškodený objekt</a>
+                <a href="{{route('incident.incidentDamagedObject.create', [$incident->id])}}" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Pridať poškodený objekt</a>
             @endif
         </div>
     </div>

@@ -28,7 +28,7 @@
                         <td>{{$incident->report_date}}</td>
                         <td>
 
-                            <a href="{{route('incident.edit', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Uprav</a>
+                            <a href="{{route('incident.show', [$incident->id])}}" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-pencil"></span> Zobraz</a>
                         </td>
                     </tr>
                 @endforeach

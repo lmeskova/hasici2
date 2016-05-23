@@ -224,7 +224,7 @@ class IncidentController extends Controller
         $incident->insuranceCompanies()->attach($request->get('insurance_companies'));
 
         Flash::success('Incident upravený.');
-        return redirect()->route('dashboard');
+        return redirect()->route('incident.show');
     }
 
     /**
